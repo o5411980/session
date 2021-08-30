@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% @favorite_blogs.each do |i| %>
+  <p>お気に入りブログid: <%= i.id %></p>
+<% end %>
+
+<% @user.favorite_blogs.each do |i| %>
+  <p>お気に入りブログid: <%= i.id %></p>
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

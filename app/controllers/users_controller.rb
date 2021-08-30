@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  skip_before_action :login_required, only: %i[ new create ]
   # GET /users or /users.json
   def index
     @users = User.all
@@ -8,11 +8,15 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @favorite_blogs = @user.favorite_blogs
+    binding.irb
   end
 
   # GET /users/new
   def new
     @user = User.new
+
+
   end
 
   # GET /users/1/edit
